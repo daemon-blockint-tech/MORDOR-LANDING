@@ -2,38 +2,38 @@
 
 import { useRef, useEffect, useState, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring, type PanInfo } from "motion/react";
-import Image from "next/image";
+import { Search, BrainCircuit, ShieldCheck, FileOutput, type LucideIcon } from "lucide-react";
 
 interface Tool {
   title: string;
   description: string;
-  image: string;
+  icon: LucideIcon;
 }
 
 const tools: Tool[] = [
   {
-    title: "Describe",
+    title: "Fingerprint",
     description:
-      "Tell Kraft what you need. A logo, a landing page, an entire brand—just say it.",
-    image: "/img/describe.webp",
+      "Submit a file or hash. MORDOR instantly extracts static metadata, imports, exports, and OSINT tags.",
+    icon: Search,
   },
   {
-    title: "Generate",
+    title: "Hypothesize",
     description:
-      "Watch as Kraft creates multiple design options, each one production-ready.",
-    image: "/img/generate.webp",
+      "Gandalf evaluates filtered signals to generate structured hypotheses about the malware's capabilities.",
+    icon: BrainCircuit,
   },
   {
-    title: "Refine",
+    title: "Validate",
     description:
-      "Tweak colors, fonts, adjust layouts—Kraft understands natural language edits.",
-    image: "/img/refine.webp",
+      "Cross-validate findings statically, then dynamically hook APIs with Frodo in a secure sandbox.",
+    icon: ShieldCheck,
   },
   {
-    title: "Ship",
+    title: "Report",
     description:
-      "Export to Figma, download assets, or push directly to your codebase. Done.",
-    image: "/img/ship.webp",
+      "Export full MITRE ATT&CK mappings, YARA rules, and structured STIX2 IOCs for your SIEM.",
+    icon: FileOutput,
   },
 ];
 
@@ -93,14 +93,12 @@ export function ToolsCarousel(): ReactNode {
     x.set(targetX);
   };
 
-
-
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-2xl font-medium tracking-tight text-foreground md:text-3xl lg:text-4xl">
-            From idea to finished design in four simple steps
+            From unknown binary to actionable intelligence in six phases
           </h2>
         </div>
       </div>
@@ -145,14 +143,10 @@ export function ToolsCarousel(): ReactNode {
                 {tool.description}
               </p>
 
-              <div className="relative mt-6 aspect-3/4 w-full h-80 overflow-hidden">
-                <Image
-                  src={tool.image}
-                  alt={tool.title}
-                  fill
-                  className="object-contain object-top scale-90 grayscale"
-                  sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, 420px"
-                  draggable={false}
+              <div className="relative mt-6 w-full h-64 overflow-hidden flex items-center justify-center">
+                <tool.icon
+                  className="w-40 h-40 text-foreground/20 transition-colors duration-300 group-hover:text-background/40"
+                  strokeWidth={1}
                 />
               </div>
             </motion.div>

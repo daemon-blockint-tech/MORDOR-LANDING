@@ -1,18 +1,10 @@
 "use client";
 
 import { useScroll, useTransform, useSpring, motion } from "motion/react";
-import {
-  Paperclip,
-  Lightbulb,
-  PenTool,
-  Layout,
-  Mic,
-  ArrowRight,
-  ArrowDown,
-} from "lucide-react";
+import { ArrowDown, Copy } from "lucide-react";
 import Image from "next/image";
 import { useRef, type ReactNode } from "react";
-import { FluidCursor } from "./fluid-cursor";
+import BlackHole from "@/components/react-bits/black-hole";
 
 export function Hero(): ReactNode {
   const sectionRef = useRef<HTMLElement>(null);
@@ -26,10 +18,13 @@ export function Hero(): ReactNode {
   const scaleY = useSpring(scaleYRaw, { stiffness: 100, damping: 30 });
 
   const y = useTransform(scrollY, (value) => value * 0.7);
+  const textColor = useTransform(scrollYProgress, [0, 0.25], ["#000000", "#FFFFFF"]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-dvh w-full">
-      <FluidCursor className="absolute inset-0 -z-5" />
+    <section ref={sectionRef} className="relative min-h-dvh w-full overflow-hidden">
+      <div className="absolute inset-0 -z-10 opacity-20">
+        <BlackHole />
+      </div>
 
       <motion.div
         className="pointer-events-none absolute inset-0 -z-10 origin-top scale-125 will-change-transform"
@@ -46,25 +41,25 @@ export function Hero(): ReactNode {
         <div className="from-background absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t to-transparent" />
       </motion.div>
 
-      <div className="mx-auto flex min-h-dvh max-w-4xl flex-col items-start justify-center gap-6 px-4 py-20 sm:justify-start sm:gap-0 sm:py-0 sm:pt-40 lg:px-8 lg:pt-68">
+      <div className="mx-auto flex min-h-dvh w-full max-w-4xl flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
         <motion.h1
-          className="text-background dark:text-background text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          className="text-5xl font-medium tracking-tight sm:text-6xl md:text-7xl lg:text-8xl pb-4"
+          style={{ color: textColor }}
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="block">Design with AI —</span>
+          <span className="block">Reverse engineer with</span>
           <span className="block">
             the{" "}
-            <em className="text-background/80 dark:text-background/80 italic">
-              future
-            </em>{" "}
-            of creativity
+            <em className="italic text-black">
+              Fellowship
+            </em>
           </span>
         </motion.h1>
 
         <motion.div
-          className="w-full sm:mt-12 lg:mt-16"
+          className="w-full mt-10 sm:mt-12 lg:mt-16"
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{
@@ -73,78 +68,30 @@ export function Hero(): ReactNode {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          <div
-            className="relative rounded-4xl rounded-b-[2.3rem] border border-black/5 bg-[#f8f8fa] p-3"
-            style={{
-              boxShadow:
-                "0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(124, 58, 237, 0.08)",
-            }}
-          >
-            <div className="flex items-start gap-3">
-              <textarea
-                placeholder="Ask Kraft anything..."
-                className="no-focus-ring mx-4 my-2 min-h-15 w-full resize-none bg-transparent text-gray-800 placeholder:text-gray-400"
-                rows={2}
-              />
+          <div className="overflow-hidden rounded-2xl border border-white/15 text-left shadow-2xl">
+            <div className="relative flex items-center justify-between gap-3 border-b border-white/10 bg-[#0f0f0f] px-3 py-2 sm:gap-6 sm:px-4 sm:py-2.5">
+              <div className="flex items-center gap-1.5">
+                <span className="size-2.5 rounded-full border border-white/20 bg-white/10"></span>
+                <span className="size-2.5 rounded-full border border-white/20 bg-white/10"></span>
+                <span className="size-2.5 rounded-full border border-white/20 bg-white/10"></span>
+              </div>
+              <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.18em] text-white/45 sm:text-xs">
+                install command
+              </span>
+              <button
+                type="button"
+                className="cursor-pointer rounded-md p-1.5 text-[#79ffbb] transition-colors hover:text-[#2ecc85] active:scale-95"
+                aria-label="Copy install command"
+              >
+                <Copy className="h-4 w-4" />
+              </button>
             </div>
-
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  className="focus-ring isolate flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full bg-white text-gray-400 transition-colors hover:border-gray-300 hover:text-gray-600"
-                  aria-label="Attach file"
-                >
-                  <Paperclip className="h-4 w-4" />
-                </button>
-
-                <button
-                  type="button"
-                  className="focus-ring isolate flex h-12 shrink-0 cursor-pointer items-center gap-2 rounded-full bg-white px-5 text-sm text-gray-500 transition-colors hover:border-gray-300 hover:text-gray-700"
-                >
-                  <Lightbulb className="h-4 w-4 shrink-0" />
-                  <span className="xs:inline hidden">Reasoning</span>
-                </button>
-
-                <button
-                  type="button"
-                  className="focus-ring isolate hidden h-12 shrink-0 cursor-pointer items-center gap-2 rounded-full bg-white px-5 text-sm text-gray-500 transition-colors hover:border-gray-300 hover:text-gray-700 sm:flex"
-                >
-                  <PenTool className="h-4 w-4 shrink-0" />
-                  <span>Create Design</span>
-                </button>
-
-                <button
-                  type="button"
-                  className="focus-ring isolate hidden h-12 shrink-0 cursor-pointer items-center gap-2 rounded-full bg-white px-5 text-sm text-gray-500 transition-colors hover:border-gray-300 hover:text-gray-700 md:flex"
-                >
-                  <Layout className="h-4 w-4 shrink-0" />
-                  <span>Wireframe</span>
-                </button>
-              </div>
-
-              <div className="flex shrink-0 items-center gap-2">
-                <button
-                  type="button"
-                  className="focus-ring isolate hidden h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white text-gray-500 transition-colors hover:bg-gray-300 hover:text-gray-700 sm:flex"
-                  aria-label="Voice input"
-                >
-                  <Mic className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  className="focus-ring bg-foreground dark:bg-background hover:bg-foreground/90 dark:hover:bg-background/90 isolate flex h-12 w-12 cursor-pointer items-center justify-center rounded-full text-white transition-colors"
-                  aria-label="Send message"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
+            <div className="bg-black/25 px-3 py-3 sm:px-4 sm:py-4 backdrop-blur-md">
+              <code className="block break-all text-base leading-5 text-white sm:whitespace-nowrap sm:leading-none">
+                <span className="text-white/50">$ </span>curl -fsSL https://mordor.digital/setup.sh | bash
+              </code>
             </div>
           </div>
-
-          <p className="text-background/60 mt-6 text-center text-xs">
-            Kraft can make mistakes, but learns from them.
-          </p>
         </motion.div>
       </div>
 
@@ -158,11 +105,6 @@ export function Hero(): ReactNode {
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
       >
-        <p className="text-foreground/60 dark:text-foreground/50 max-w-sm text-sm">
-          Kraft uses advanced AI to transform your ideas into stunning designs.
-          Just describe what you need.
-        </p>
-
         <ArrowDown
           className="text-foreground/60 dark:text-foreground/50 h-12 w-12"
           strokeWidth={1}

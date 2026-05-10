@@ -19,53 +19,51 @@ interface PricingPlan {
 
 const plans: PricingPlan[] = [
   {
-    name: "Starter",
-    description: "For individuals and side projects",
-    price: "$29",
-    period: "/mo",
+    name: "Quick Triage",
+    description: "High-volume automated screening",
+    price: "$0.01",
+    period: "/req",
     icon: Rocket,
     features: [
-      "50 design generations/month",
-      "Basic brand kit",
-      "PNG & SVG exports",
-      "Email support",
-      "1 workspace",
+      "Phases 1-2 only",
+      "OSINT & Static filtering",
+      "No LLM usage",
+      "Basic reporting",
+      "Pay per request (PPR)",
     ],
-    cta: "Get started",
+    cta: "Start triaging",
   },
   {
-    name: "Pro",
-    description: "Best for startups and growing teams",
-    price: "$99",
-    period: "/mo",
-    note: "Cancel or pause any time",
+    name: "Standard Analysis",
+    description: "Security analysts and teams",
+    price: "$0.10",
+    period: "/req",
+    note: "Pay with USDC.e via Tempo",
     icon: Zap,
     features: [
-      "Unlimited design generations",
-      "Advanced brand consistency",
-      "All export formats + Figma",
-      "Priority support & delivery",
-      "5 team members",
-      "API access",
+      "Full 6-phase pipeline",
+      "LLM hypothesis builder",
+      "On-demand Saruman analysis",
+      "YARA & STIX2 exports",
+      "Automated HTTP 402 billing",
     ],
-    cta: "Upgrade plan",
+    cta: "Deploy Fellowship",
     popular: true,
   },
   {
-    name: "Enterprise",
-    description: "For large teams and organizations",
-    price: "Custom",
-    period: "",
+    name: "Deep Investigation",
+    description: "Advanced incident response",
+    price: "$0.50",
+    period: "/req",
     icon: Building2,
     features: [
-      "Everything in Pro",
-      "Unlimited team members",
-      "Custom model training",
-      "Dedicated account manager",
-      "SSO & advanced security",
-      "SLA & on-prem options",
+      "Everything in Standard",
+      "Always-on Saruman",
+      "MITRE ATT&CK mapping",
+      "Volatility memory forensics",
+      "Custom agent hooks (Frida)",
     ],
-    cta: "Contact sales",
+    cta: "Contact Sales",
   },
 ];
 
@@ -178,7 +176,7 @@ export function Pricing(): ReactNode {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16">
           <p className="text-4xl font-medium tracking-tight text-foreground">
-            Simple, transparent pricing
+            Enterprise-grade threat intelligence
           </p>
         </div>
 
@@ -189,7 +187,7 @@ export function Pricing(): ReactNode {
         </div>
 
         <p className="mx-auto mt-12 max-w-2xl text-center text-lg text-muted-foreground">
-          Start free and scale as you grow. No hidden fees, no surprises.
+          Pay-per-request using HTTP 402 Machine Payments Protocol (MPP). No API keys, no monthly commitments.
         </p>
       </div>
     </section>

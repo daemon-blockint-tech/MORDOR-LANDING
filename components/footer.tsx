@@ -1,129 +1,194 @@
 "use client";
 
-import type { ReactNode } from "react";
-import Link from "next/link";
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import Link from "next/link";
 
-const footerLinks = {
-  Product: [
-    { label: "Features", href: "#" },
-    { label: "Pricing", href: "#" },
-    { label: "Changelog", href: "#" },
-    { label: "Roadmap", href: "#" },
-  ],
-  Company: [
-    { label: "About", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Press", href: "#" },
-  ],
-  Resources: [
-    { label: "Documentation", href: "#" },
-    { label: "Help Center", href: "#" },
-    { label: "Community", href: "#" },
-  ],
-};
+export function Footer() {
+  const footerColumns = [
+    {
+      title: "Pipeline",
+      links: [
+        { text: "Fingerprint", href: "#pipeline" },
+        { text: "Hypothesize", href: "#pipeline" },
+        { text: "Validate", href: "#pipeline" },
+        { text: "Report", href: "#pipeline" },
+      ],
+    },
+    {
+      title: "Fellowship",
+      links: [
+        { text: "Gandalf (Orchestrator)", href: "#fellowship" },
+        { text: "Legolas (Static)", href: "#fellowship" },
+        { text: "Frodo (Dynamic)", href: "#fellowship" },
+        { text: "Saruman (Deep Analysis)", href: "#fellowship" },
+      ],
+    },
+    {
+      title: "Ecosystem",
+      links: [
+        { text: "Documentation", href: "https://github.com/daemon-blockint-tech/MORDOR/blob/main/CLAUDE.md" },
+        { text: "GitHub Repository", href: "https://github.com/daemon-blockint-tech/MORDOR" },
+        { text: "PayAI Gateway", href: "https://x402.payai.network" },
+        { text: "Docker Sandbox", href: "#" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { text: "Tiers & Pricing", href: "#tiers" },
+        { text: "Threat Intelligence", href: "#" },
+        { text: "Security Audits", href: "#" },
+        { text: "Bug Bounty", href: "#" },
+      ],
+    },
+  ];
 
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
 
-export function Footer(): ReactNode {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <footer className="relative overflow-hidden bg-background px-4 text-foreground sm:px-6 lg:px-8">
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 opacity-60"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(51,61,167,0.8) 0%, rgba(81,96,195,0.5) 20%, rgba(115,136,223,0.3) 40%, rgba(140,158,230,0.15) 60%, rgba(165,180,240,0.05) 80%, transparent 100%)",
-          maskImage:
-            "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto max-w-7xl py-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
-          <div className="grid flex-1 gap-8 sm:grid-cols-3">
-            {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category}>
-                <h3 className="text-sm text-muted-foreground">{category}</h3>
-                <ul className="mt-4 space-y-3">
-                  {links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-lg text-foreground transition-colors hover:text-foreground/70"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+    <footer className="w-full bg-background border-t border-white/5 pt-12 overflow-hidden">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        {/* Headline */}
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <motion.div variants={itemVariants} className="py-12">
+            <h2 className="text-3xl font-medium tracking-tight leading-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+              Autonomous malware analysis.
+              <br />
+              <span className="text-muted-foreground">One binary at a time.</span>
+            </h2>
+          </motion.div>
+        </div>
+
+        {/* Two Column Layout with Borders */}
+        <div className="border-y border-border/50">
+          <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-1 gap-0 lg:grid-cols-[1fr_1.5fr]"
+            >
+              {/* Left Column - Newsletter Signup */}
+              <div className="border-b border-border/50 py-8 lg:border-b-0 lg:border-r lg:py-12 lg:pr-12">
+                <div>
+                  <h3 className="mb-6 text-lg font-medium tracking-tight text-foreground sm:text-xl">
+                    Stay updated on the Fellowship's discoveries.
+                  </h3>
+
+                  {/* Email Input with Button */}
+                  <div className="mb-6 flex">
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      className="flex-1 rounded-l-xl border border-r-0 border-border/50 bg-muted/20 px-4 py-3 text-sm text-foreground placeholder-muted-foreground focus:border-white/20 focus:outline-none sm:px-6 sm:py-4 sm:text-base"
+                    />
+                    <button
+                      className="flex items-center justify-center rounded-r-xl border border-border/50 bg-foreground px-4 transition-opacity hover:opacity-90 sm:px-6 cursor-pointer"
+                      aria-label="Subscribe"
+                    >
+                      <ArrowRight className="h-5 w-5 text-background sm:h-6 sm:w-6" />
+                    </button>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground sm:text-sm">
+                    *By completing this form you are signing up to receive our
+                    threat intel reports and can unsubscribe at any time.
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
 
-          <div className="lg:text-right">
-            <h3 className="text-sm text-muted-foreground">Social</h3>
-            <div className="mt-4 flex gap-3 lg:justify-end">
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-colors hover:bg-foreground/20"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5 fill-foreground/40 text-foreground/40" strokeWidth={1} />
-                </Link>
-              ))}
+              {/* Right Column - 4 Column Links */}
+              <div className="py-8 lg:py-12 lg:pl-12">
+                <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+                  {footerColumns.map((column) => (
+                    <div key={column.title}>
+                      <h4 className="mb-4 text-sm font-medium tracking-tight text-foreground sm:mb-6 sm:text-base">
+                        {column.title}
+                      </h4>
+                      <ul className="space-y-3">
+                        {column.links.map((link) => (
+                          <li key={link.text}>
+                            <Link
+                              href={link.href}
+                              className="text-sm tracking-tight text-muted-foreground transition-colors hover:text-foreground sm:text-base no-underline"
+                            >
+                              {link.text}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <motion.div variants={itemVariants} className="py-12">
+            {/* Logo */}
+            <div className="mb-8">
+              <Link href="/">
+                <Image
+                  src="/logos/mordor-logo-black.png"
+                  alt="MORDOR"
+                  width={200}
+                  height={34}
+                  className="block dark:hidden"
+                />
+                <Image
+                  src="/logos/mordor-logo-white.png"
+                  alt="MORDOR"
+                  width={200}
+                  height={34}
+                  className="hidden dark:block"
+                />
+              </Link>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="relative mx-auto max-w-7xl py-8">
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Kraft, Inc. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Terms
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Cookies
-            </Link>
-          </div>
+            {/* Copyright and Links */}
+            <div className="flex flex-col gap-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:text-sm">
+              <p>© {new Date().getFullYear()} DAEMON BLOCKINT TECHNOLOGIES. All rights reserved.</p>
+              <div className="flex items-center gap-4">
+                <Link
+                  href="#"
+                  className="transition-colors hover:text-foreground no-underline"
+                >
+                  Privacy Policy
+                </Link>
+                <span className="hidden sm:inline">•</span>
+                <Link
+                  href="#"
+                  className="transition-colors hover:text-foreground no-underline"
+                >
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
-
-      <div className="relative mx-auto max-w-338 select-none h-44 pb-12">
-        <Image
-          src="/svg/logo-text.svg"
-          alt=""
-          width={2500}
-          height={400}
-          className="w-full opacity-5 invert dark:invert-0"
-          aria-hidden="true"
-        />
-      </div>
+      </motion.div>
     </footer>
   );
 }

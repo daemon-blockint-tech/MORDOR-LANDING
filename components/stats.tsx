@@ -6,7 +6,7 @@ import { motion, useInView } from "motion/react";
 interface Competitor {
   name: string;
   value: number;
-  isKraft?: boolean;
+  isMordor?: boolean;
 }
 
 interface Benchmark {
@@ -18,32 +18,32 @@ interface Benchmark {
 const benchmarks: Benchmark[] = [
   {
     category: "Speed",
-    metric: "Designs/min",
+    metric: "Samples/hour",
     competitors: [
-      { name: "Kraft", value: 94.2, isKraft: true },
-      { name: "Figma AI", value: 71.8 },
-      { name: "Canva Magic", value: 68.4 },
-      { name: "Framer AI", value: 58.7 },
+      { name: "MORDOR", value: 94.2, isMordor: true },
+      { name: "Falcon Sandbox", value: 71.8 },
+      { name: "Cuckoo", value: 68.4 },
+      { name: "Manual RE", value: 5.7 },
     ],
   },
   {
-    category: "Quality",
-    metric: "Score",
-    competitors: [
-      { name: "Kraft", value: 96.8, isKraft: true },
-      { name: "Figma AI", value: 89.2 },
-      { name: "Canva Magic", value: 82.1 },
-      { name: "Framer AI", value: 79.4 },
-    ],
-  },
-  {
-    category: "Consistency",
+    category: "Detection Quality",
     metric: "Accuracy %",
     competitors: [
-      { name: "Kraft", value: 98.1, isKraft: true },
-      { name: "Figma AI", value: 81.3 },
-      { name: "Framer AI", value: 76.9 },
-      { name: "Canva Magic", value: 72.4 },
+      { name: "MORDOR", value: 96.8, isMordor: true },
+      { name: "Falcon Sandbox", value: 89.2 },
+      { name: "Cuckoo", value: 82.1 },
+      { name: "Manual RE", value: 79.4 },
+    ],
+  },
+  {
+    category: "False Positives",
+    metric: "Score",
+    competitors: [
+      { name: "MORDOR (Lowest)", value: 98.1, isMordor: true },
+      { name: "Manual RE", value: 81.3 },
+      { name: "Falcon Sandbox", value: 76.9 },
+      { name: "Cuckoo", value: 72.4 },
     ],
   },
 ];
@@ -72,7 +72,7 @@ function BarChart({ benchmark }: { benchmark: Benchmark }) {
               <div className="w-28 shrink-0">
                 <span
                   className={`text-sm ${
-                    competitor.isKraft
+                    competitor.isMordor
                       ? "font-medium text-foreground"
                       : "text-muted-foreground"
                   }`}
@@ -85,7 +85,7 @@ function BarChart({ benchmark }: { benchmark: Benchmark }) {
                 <div className="relative h-6 flex-1 overflow-hidden rounded-sm bg-muted/30">
                   <motion.div
                     className={`absolute inset-y-0 left-0 rounded-sm ${
-                      competitor.isKraft
+                      competitor.isMordor
                         ? "bg-linear-to-r from-[#333DA7] to-[#7388DF]"
                         : "bg-muted/75"
                     }`}
@@ -102,7 +102,7 @@ function BarChart({ benchmark }: { benchmark: Benchmark }) {
                 <div className="w-12 shrink-0 pl-2 text-right">
                   <motion.span
                     className={`text-sm tabular-nums ${
-                      competitor.isKraft
+                      competitor.isMordor
                         ? "font-medium text-foreground"
                         : "text-muted-foreground"
                     }`}
@@ -131,7 +131,7 @@ export function Stats(): ReactNode {
             Performance that stands out
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We benchmark Kraft against leading design tools across speed,
+            We benchmark MORDOR against traditional analysis pipelines across speed,
             quality, and consistency. The results speak for themselves.
           </p>
         </div>

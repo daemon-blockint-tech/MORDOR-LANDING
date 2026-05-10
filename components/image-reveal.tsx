@@ -18,20 +18,20 @@ interface ImageRevealProps {
 
 const defaultImages = [
   // Column 0
-  { src: "/img/mock1_compressed.webp", alt: "Kraft design 1" },
-  { src: "/img/mock2_compressed.webp", alt: "Kraft design 2" },
-  { src: "/img/mock3_compressed.webp", alt: "Kraft design 3" },
-  { src: "/img/mock4_compressed.webp", alt: "Kraft design 4" },
+  { src: "/img/3d-render-wPPwXYTXIl0-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 1" },
+  { src: "/img/denis-sebastian-tamas-ZmKykuKK0OA-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 2" },
+  { src: "/img/dim-gunger-hp6G_bRi7Jk-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 3" },
+  { src: "/img/hadi-yazdi-aznaveh-MlZ1QEww_-U-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 4" },
   // Column 1
-  { src: "/img/mock5_compressed.webp", alt: "Kraft design 5" },
-  { src: "/img/mock6_compressed.webp", alt: "Kraft design 6" },
-  { src: "/img/mock7_compressed.webp", alt: "Kraft design 7" },
-  { src: "/img/mock8_compressed.webp", alt: "Kraft design 8" },
+  { src: "/img/hadi-yazdi-aznaveh-Np378z6jGrk-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 5" },
+  { src: "/img/jc-dela-cuesta-MgG-w0Dg_Ek-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 6" },
+  { src: "/img/markus-spiske-70Rir5vB96U-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 7" },
+  { src: "/img/rick-rothenberg-Y1GVAhRHiH4-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 8" },
   // Column 2
-  { src: "/img/mock9_compressed.webp", alt: "Kraft design 9" },
-  { src: "/img/mock10_compressed.webp", alt: "Kraft design 10" },
-  { src: "/img/mock11_compressed.webp", alt: "Kraft design 11" },
-  { src: "/img/mock12_compressed.webp", alt: "Kraft design 12" },
+  { src: "/img/shubham-dhage-FmFY5hITXWU-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 9" },
+  { src: "/img/xavier-cee-genkxag3nY4-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 10" },
+  { src: "/img/3d-render-wPPwXYTXIl0-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 11" },
+  { src: "/img/markus-spiske-70Rir5vB96U-unsplash.jpg", alt: "MORDOR Malware Sandbox Visualization 12" },
 ];
 
 export function ImageReveal({

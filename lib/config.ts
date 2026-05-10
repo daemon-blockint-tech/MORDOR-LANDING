@@ -8,21 +8,21 @@
  */
 
 export const siteConfig = {
-  name: "Nexus AI",
-  tagline: "The AI Platform for Modern Teams",
+  name: "MORDOR",
+  tagline: "The Fellowship Reverse Engineers",
   description:
-    "Build, deploy, and scale AI-powered applications with enterprise-grade infrastructure. From ideation to production in minutes.",
-  url: "https://nexus-ai.com",
-  twitter: "@nexusai",
+    "AI-orchestrated malware analysis pipeline. Multi-agent reverse engineering powered by Gandalf, Legolas, Frida, and the Fellowship. Six-phase analysis, anti-FP gates, IOC export.",
+  url: "https://github.com/daemon-blockint-tech/MORDOR",
+  twitter: "@mordoranalysis",
 
   nav: {
     cta: {
-      text: "Start Free",
-      href: "#",
+      text: "Start Analysis",
+      href: "#analysis",
     },
     signIn: {
-      text: "Sign in",
-      href: "#",
+      text: "Docs",
+      href: "https://github.com/daemon-blockint-tech/MORDOR/blob/main/CLAUDE.md",
     },
   },
 } as const;

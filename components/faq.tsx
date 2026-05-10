@@ -11,29 +11,29 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What kinds of designs can Kraft create?",
+    question: "What kinds of malware can MORDOR analyze?",
     answer:
-      "Kraft can generate logos, landing pages, social media graphics, brand identities, app interfaces, presentations, and more. Just describe what you need in natural language, and Kraft will produce multiple production-ready options.",
+      "MORDOR can analyze Windows binaries, ELF executables, packed payloads, and shellcode. Just submit a file or hash, and the Fellowship will extract intelligence, hook runtime APIs, and map capabilities.",
   },
   {
-    question: "How does Kraft ensure brand consistency?",
+    question: "How does MORDOR prevent false positives?",
     answer:
-      "Kraft learns your brand guidelines—colors, fonts, tone, and style—and applies them automatically to every design. Upload your brand kit once, and Kraft maintains consistency across all outputs.",
+      "Gollum acts as our adversarial reviewer, forcing the pipeline to justify signals. Every critical finding requires cross-validation from dynamic (Frodo) and static (Legolas) agents.",
   },
   {
-    question: "Can I edit or refine designs after generation?",
+    question: "Can I dive deeper into specific functions?",
     answer:
-      "Absolutely. You can tweak colors, adjust layouts, change fonts, or request specific modifications using natural language. Kraft understands conversational edits like 'make it more minimal' or 'use a warmer palette.'",
+      "Absolutely. You can request Saruman (Claude Opus) to perform deep decompilation and semantic analysis on specific functions identified during triage.",
   },
   {
-    question: "What export formats does Kraft support?",
+    question: "What export formats does MORDOR support?",
     answer:
-      "Kraft exports to all major formats including PNG, SVG, PDF, and Figma. You can also push designs directly to your codebase with production-ready React or HTML/CSS components.",
+      "MORDOR exports to STIX2, YARA rules, and Sigma rules. You also get a comprehensive Markdown report mapping the attack to MITRE ATT&CK.",
   },
   {
-    question: "Is my data and designs secure?",
+    question: "Is my data and samples secure?",
     answer:
-      "Yes. All designs and data are encrypted end-to-end. We never train our models on your proprietary work, and you retain full ownership of everything you create with Kraft.",
+      "Yes. All binaries are executed in Treebeard (isolated Docker sandbox) with strict network policies. We never leak your proprietary malware samples to public repositories.",
   },
 ];
 

@@ -29,16 +29,16 @@ interface CardData {
 
 const cards: CardData[] = [
   {
-    title: "Startup Launch Kit",
-    image: "/img/mock1_compressed.webp",
+    title: "Static Fingerprinting",
+    image: "/img/markus-spiske-70Rir5vB96U-unsplash.jpg",
   },
   {
-    title: "E-commerce Suite",
-    image: "/img/mock5_compressed.webp",
+    title: "Dynamic Sandbox",
+    image: "/img/denis-sebastian-tamas-ZmKykuKK0OA-unsplash.jpg",
   },
   {
-    title: "SaaS Dashboard",
-    image: "/img/mock9_compressed.webp",
+    title: "Deep Opus Analysis",
+    image: "/img/shubham-dhage-FmFY5hITXWU-unsplash.jpg",
   },
 ];
 
@@ -410,7 +410,7 @@ export function ShowcaseCards(): ReactNode {
     <section className="px-4 py-20 sm:px-6 md:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <h2 className="mb-12 text-2xl font-medium tracking-tight text-foreground md:text-3xl lg:text-4xl">
-          Pre-built designs, ready to customize
+          Comprehensive analysis phases, ready to execute
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -426,8 +426,8 @@ export function ShowcaseCards(): ReactNode {
 
         <div className="mt-12 flex flex-col gap-2 sm:flex-row items-start sm:justify-between">
           <p className="max-w-md text-lg text-muted-foreground">
-            Skip the blank canvas. Start with curated presets crafted for
-            specific industries and use cases.
+            Skip the manual triage. Start with orchestrated agents crafted for
+            precise malware analysis and reverse engineering.
           </p>
           <Link
             href="#"

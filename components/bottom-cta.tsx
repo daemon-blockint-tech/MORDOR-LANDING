@@ -10,10 +10,10 @@ export function BottomCTA(): ReactNode {
         <div className="relative z-10 px-8 py-12 sm:px-12">
           <div className="max-w-xl">
             <h2 className="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
-              Get early access
+              Deploy the Fellowship
             </h2>
             <p className="mt-3 text-lg max-w-md text-muted-foreground">
-              Every week, we ship new AI-powered design features. Join and be first in line to shape what we build next.
+              Every week, malware evolves. Join early access to secure your infrastructure with autonomous reverse engineering.
             </p>
 
             <form className="mt-8 flex flex-col gap-2 sm:flex-row">
@@ -25,9 +25,9 @@ export function BottomCTA(): ReactNode {
               />
               <button
                 type="submit"
-                className="h-12 cursor-pointer rounded-full bg-background px-8 font-medium text-foreground transition-opacity hover:opacity-90"
+                className="h-12 cursor-pointer rounded-full bg-background px-8 font-medium text-foreground transition-opacity hover:opacity-90 whitespace-nowrap"
               >
-                Join waitlist
+                Request Access
               </button>
             </form>
 
